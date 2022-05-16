@@ -8,3 +8,9 @@ document.getElementById("app").innerHTML = `
   <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
 </div>
 `;
+
+//ファイルの拡張子を取得する
+let file = "samle.png";
+let file_type = file.split(".").pop();
+
+console.log(file_type);
