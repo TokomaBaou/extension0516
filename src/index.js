@@ -7,6 +7,7 @@ document.getElementById("app").innerHTML = `
   info about Parcel 
   <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
 </div>
+<input type="file" id="file1"/>
 `;
 
 //ファイルの拡張子を取得する
@@ -23,13 +24,23 @@ console.log(file_type);
  * @return {Boolean} true:正しい.
  * */
 /**スペース以外の文字で始まって[.csv]で終わる文字（大文字、小文字を区別しない[i]） */
-const isCorrectExtension = (name) => {
-  const format = new RegExp("([^s]+(\\.(csv))$)", "i");
-  return format.test(name);
-};
-
 /**
  * ^ 入力の先頭にマッチ
  * ＄　入力の末尾にマッチ
  * \s スペース、タブ、改ページ、改行を含むホワイトスペース文字にマッチ
  * */
+const isCorrectExtension = (name) => {
+  const format = new RegExp("([^s]+(\\.(csv))$)", "i");
+  return format.test(name);
+};
+
+/**input typeで拡張子を判断する */
+
+if (
+  !document
+    .getElementById("file")
+    .value.toUpperCase()
+    .match(/\.(CSV)$/i)
+) {
+  console.log("CSVファイルの形式(拡張子)が違います");
+}
